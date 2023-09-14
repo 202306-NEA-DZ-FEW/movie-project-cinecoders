@@ -25,3 +25,37 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.moviePage {
+  margin-left: 5rem;
+  margin-top: 2rem;
+}
+
+.test {
+  margin: 3rem;
+  font-size: large;
+}
+
+div.test h1 {
+  color: #58588a;
+  font-size: 4rem;
+  text-align: center;
+}
+
+div.test p {
+  font-style: italic;
+  margin-bottom: 1rem;
+  font-size: medium;
+  text-align: center;
+}
+
+.subtitle1 {
+  font-size: 8px;
+}
+
+.bigTitle {
+  text-align: center;
+  font-size: 7rem;
+  color: blueviolet;
+  margin-bottom: 2rem;
+}
