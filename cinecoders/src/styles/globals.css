@@ -59,3 +59,31 @@ div.test p {
   color: blueviolet;
   margin-bottom: 2rem;
 }
+
+.yml {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.trailerNone {
+  background-color: #ffe0e0; /* Light red background */
+  border: 1px solid #ff0000; /* Red border */
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.info-symbol {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.infoBig {
+  text-align: center;
+  font-size: large;
+  margin-bottom: 3rem;
+}
+
+.marginTop {
+  margin-top: 2rem;
+}
