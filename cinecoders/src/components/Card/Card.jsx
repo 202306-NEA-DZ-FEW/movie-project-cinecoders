@@ -25,7 +25,7 @@ export default function MovieCard(props) {
       }}
     >
       <CardActionArea>
-        <CardMedia
+        <CardMedia 
           component="img"
           image={"https://image.tmdb.org/t/p/w500/" + poster_path}
           style={{ height: "250px" }}

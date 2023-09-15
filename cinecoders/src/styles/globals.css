@@ -87,3 +87,13 @@ div.test p {
 .marginTop {
   margin-top: 2rem;
 }
+
+.buttooon {
+
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.noDeco {
+  text-decoration: none;
+}
