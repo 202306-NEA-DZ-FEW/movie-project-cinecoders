@@ -1,0 +1,76 @@
+.header {
+    background-color: black;
+    margin: auto;
+    width: auto;
+}
+
+.header ul {
+    background-color: black;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.header ul li {
+    font-size: 14px;
+    border-right: 1px solid gray;
+    padding: 1rem 2rem;
+}
+.header ul li:hover {
+    background-color: #f0f0f0;
+    color: #000;
+  }
+.btnStyle {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+}
+
+.parent {
+    position: relative;
+}
+
+.subMenuDropdown {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-top: 18px;
+    padding: 0;
+    display: none; /*it was flex*/
+    flex-direction: column;
+}
+
+.subMenuDropdown li {
+    border: 1px solid gray;
+    width: 100%;
+}
+
+.ArrowDown {
+    margin-left: 10px;
+    border-top: 0.5rem solid gray;
+    border-left: 0.4rem solid transparent;
+    border-right: 0.4rem solid transparent;
+}
+/* 
+.subMenuDropdownStyle {
+    position: absolute;
+    left: 100%;
+    top: -18px;
+} */
+
+.showMenu{
+    display: block;
+}
+.hideMenu{
+    display: none;
+}
+
+.parent:hover .subMenuDropdown {
+    display: block;
+}
+.header ul li:hover .subMenuDropdown {
+  display: block;
+}
