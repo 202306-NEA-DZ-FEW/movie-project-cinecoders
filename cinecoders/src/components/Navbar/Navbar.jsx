@@ -12,6 +12,7 @@ import Menu from '@mui/joy/Menu';
 import MenuButton from '@mui/joy/MenuButton';
 import MenuItem from '@mui/joy/MenuItem';
 
+import BasicMenu from '../Dropdown/Neww';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -55,8 +56,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function Home() {
+export default function Navbar() {
   
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -76,16 +78,21 @@ export default function Home() {
       <Dropdown>
     <MenuButton>MOVIES</MenuButton>
     <Menu>
-      <MenuItem>Top Rate</MenuItem>
-      <MenuItem>Popular</MenuItem>
       <MenuItem>Latest</MenuItem>
-      <MenuItem>Now playing </MenuItem>
-      <MenuItem>Upcoming</MenuItem>
-
+      <MenuItem>Up coming</MenuItem>
+      <MenuItem>OLD</MenuItem>
     </Menu>
   </Dropdown></div>
       
-     
+          
+          <Button
+        variant="text"
+        color="inherit"
+        sx={{ display: { xs: 'none', sm: 'block' } }}
+        
+      >
+        Movies
+      </Button>
      
       <Button
         variant="text"
@@ -129,15 +136,4 @@ export default function Home() {
        
     </Box>
   );
-  /*return(
-  
-  
-  <Dropdown>
-    <MenuButton>MOVIES</MenuButton>
-    <Menu>
-      <MenuItem>Latest</MenuItem>
-      <MenuItem>Up coming</MenuItem>
-      <MenuItem>OLD</MenuItem>
-    </Menu>
-  </Dropdown>)*/
 }
