@@ -11,8 +11,9 @@ import Dropdown from '@mui/joy/Dropdown';
 import Menu from '@mui/joy/Menu';
 import MenuButton from '@mui/joy/MenuButton';
 import MenuItem from '@mui/joy/MenuItem';
+import Link from 'next/link';
 
-import BasicMenu from '../Dropdown/Neww';
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -65,22 +66,24 @@ export default function Navbar() {
         <Toolbar>
           
         <Button
+        
        variant="text"
        color="inherit"
        sx={{
        display: { xs: 'none', sm: 'block' },
        backgroundColor: '#001f3f', }}
-       style={{ color: 'red', fontStyle: 'italic' }}
+       style={{ textDecoration: 'none', color: 'red', fontStyle: 'italic', marginRight: '4rem' }}
          > 
-        CineCoders
+        <Link href="/">CineCoders</Link>
       </Button>
       <div>
       <Dropdown>
     <MenuButton>MOVIES</MenuButton>
     <Menu>
-      <MenuItem>Latest</MenuItem>
-      <MenuItem>Up coming</MenuItem>
-      <MenuItem>OLD</MenuItem>
+    <MenuItem><Link href="/movies/toprate">Top Rate</Link></MenuItem>
+      <MenuItem><Link href="/movies/popular">Popular</Link></MenuItem>
+      <MenuItem><Link href="/movies/nowplaying">Now playing</Link></MenuItem>
+      <MenuItem><Link href="/movies/upcoming">Upcoming</Link></MenuItem>
     </Menu>
   </Dropdown></div>
       
@@ -119,7 +122,7 @@ export default function Navbar() {
       </Button>
    
    
-      <Search>
+      <Search style={{ marginLeft: '10rem', width: '300px' }}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>

@@ -1,143 +1,56 @@
 import React from 'react';
-
-import { styled, alpha } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Button from '@mui/material/Button';
-import InputBase from '@mui/material/InputBase';
-import SearchIcon from '@mui/icons-material/Search';
-import Dropdown from '@mui/joy/Dropdown';
-import Menu from '@mui/joy/Menu';
-import MenuButton from '@mui/joy/MenuButton';
-import MenuItem from '@mui/joy/MenuItem';
+import Grid from "@mui/material/Grid"
+import MovieCard from "@/components/Card/Card"
+import Navbar from '@/components/Navbar/Navbar';
 
 
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(1),
-    width: 'auto',
-  },
-}));
 
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
 
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: '12ch',
-      '&:focus': {
-        width: '20ch',
-      },
-    },
-  },
-}));
-
-export default function Home() {
+export default function Home({latestMovie}) {
   
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          
-        <Button
-       variant="text"
-       color="inherit"
-       sx={{
-       display: { xs: 'none', sm: 'block' },
-       backgroundColor: '#001f3f', }}
-       style={{ color: 'red', fontStyle: 'italic' }}
-         > 
-        CineCoders
-      </Button>
-      <div>
-      <Dropdown>
-    <MenuButton>MOVIES</MenuButton>
-    <Menu>
-      <MenuItem>Top Rate</MenuItem>
-      <MenuItem>Popular</MenuItem>
-      <MenuItem>Latest</MenuItem>
-      <MenuItem>Now playing </MenuItem>
-      <MenuItem>Upcoming</MenuItem>
+    <div>
+    <Navbar />
+<div className="moviePage">
+<h1 className="bigTitle">Discover the latest movies</h1>
 
-    </Menu>
-  </Dropdown></div>
-      
-     
-     
-      <Button
-        variant="text"
-        color="inherit"
-        sx={{ display: { xs: 'none', sm: 'block' } }}
-        
-      >
-        Genres
-      </Button>
-      
-      <Button
-        variant="text"
-        color="inherit"
-        sx={{ display: { xs: 'none', sm: 'block' } }}
-      >
-        Actors
-      </Button>
-      <Button
-        variant="text"
-        color="inherit"
-        sx={{ display: { xs: 'none', sm: 'block' } }}
-      >
-        About
-      </Button>
-   
-   
-      <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
-
-          
-        </Toolbar>
-       
-      </AppBar>
-       
-    </Box>
+<Grid
+  container
+  spacing={4}
+  direction="row"
+  justifyContent="space-evenly"
+  alignItems="flex"
+>
+  {latestMovie.results.map((movie) => {
+    return (
+      <Grid item xs={4} key={movie.id}>
+        <MovieCard {...movie} />
+      </Grid>
+    )
+  })}
+</Grid>
+</div>
+</div>
   );
-  /*return(
   
-  
-  <Dropdown>
-    <MenuButton>MOVIES</MenuButton>
-    <Menu>
-      <MenuItem>Latest</MenuItem>
-      <MenuItem>Up coming</MenuItem>
-      <MenuItem>OLD</MenuItem>
-    </Menu>
-  </Dropdown>)*/
+}
+
+export async function getStaticProps() {
+  const url = "https://api.themoviedb.org/3/trending/movie/week?language=en-US"
+  const options = {
+    headers: {
+      accept: "application/json",
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5ZjBlYzdlNWQyNjk1NGU5Yjc3MGVhNjU0Y2EzMjk5ZiIsInN1YiI6IjY1MDBmYTYwZWZlYTdhMDBmZDFiOTUyNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8aDt5GtI-fsoy12WejvXZlqANpDVU2bfZ5gfoDmz5vw",
+    },
+  }
+
+  const response = await fetch(url, options)
+  const data = await response.json()
+
+  return {
+    props: {
+      latestMovie: data,
+    },
+  }
 }
