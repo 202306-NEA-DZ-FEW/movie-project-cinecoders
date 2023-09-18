@@ -156,9 +156,10 @@ export default function Navbar({ onSearchChange }) {
             <Button
               variant="text"
               color="inherit"
+              href="/tv"
               sx={{ display: { xs: 'none', sm: 'block' } }}
             >
-              About
+              TV Shows
             </Button>
           </div>
 
