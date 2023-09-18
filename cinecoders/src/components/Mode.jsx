@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { ThemeProvider, createTheme } from "@mui/material/styles"; // Update this line
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Container, CssBaseline, Switch, Typography } from "@mui/material";
 
 function Mode() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(false); // Set dark mode as default
 
-
-const theme = createTheme({
+  const theme = createTheme({
     palette: {
       mode: darkMode ? "dark" : "light", 
       background: {
@@ -17,12 +16,20 @@ const theme = createTheme({
   
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Container maxWidth="lg">
-        <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
-      </Container>
-    </ThemeProvider>
+    <CssBaseline />
+    <Container maxWidth="lg">
+      <Switch checked={!darkMode} onChange={() => setDarkMode(darkMode)} />
+    </Container>
+  </ThemeProvider>
   );
 }
 
 export default Mode;
+
+
+/*    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Container maxWidth="lg">
+        <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
+      </Container>
+    </ThemeProvider> */

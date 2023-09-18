@@ -9,7 +9,9 @@ function Actor({actorList}) {
   return (
     <div>
       <Navbar />
+      <div style={{ color: "#6082B6", textAlign: 'center' }}>
       <h1>Actor page</h1>
+      </div>
     <br />
     <Grid
         container
@@ -17,6 +19,7 @@ function Actor({actorList}) {
         direction="row"
         justifyContent="space-evenly"
         alignItems="flex"
+        margin='auto'
       >
         {actorList.results.map((actor) => {
           return (

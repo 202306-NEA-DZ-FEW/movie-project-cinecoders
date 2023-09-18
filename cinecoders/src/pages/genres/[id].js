@@ -24,7 +24,7 @@ export default function GenrePage() {
   return (
     <div>
       <Navbar /> 
-      <h1>Discover the best {name} movies</h1>
+    
 
       <Grid
         container
@@ -32,6 +32,8 @@ export default function GenrePage() {
         direction="row"
         justifyContent="space-evenly"
         alignItems="flex"
+        paddingLeft="3rem"
+        paddingRight='2rem'
       >
       
         {movies.map((movie) => (

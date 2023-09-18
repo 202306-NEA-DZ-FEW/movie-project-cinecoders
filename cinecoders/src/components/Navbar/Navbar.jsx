@@ -90,7 +90,7 @@ export default function Navbar({ onSearchChange }) {
               display: { xs: 'none', sm: 'block' },
               backgroundColor: '#001f3f',
             }}
-            style={{ textDecoration: 'none', color: 'red', fontStyle: 'italic', marginRight: '4rem' }}
+            style={{ fontSize: '20px', textDecoration: 'none', color: "#6082B6", fontStyle: 'italic', marginRight: '4rem' }}
           >
             CineCoders
           </Button>

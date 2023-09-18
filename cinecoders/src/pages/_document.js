@@ -19,7 +19,7 @@ export default function Document(){
       <Head />
       <body>
 
-        
+        <div >
         
 
         <Main />
@@ -28,6 +28,7 @@ export default function Document(){
 
         <div style={{ marginTop: "7rem" }}>
         <Footer />
+        </div>
         </div>
       </body>
       

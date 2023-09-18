@@ -36,7 +36,9 @@ export default function MoviePage({
       fontStyle: 'italic', fontSize: '1.2rem'}}>
         {movieData.tagline}</Typography>
       
-      <Container style={{ height: "auto", marginBottom: "6rem" }}>
+      <Container style={{ height: "auto", marginBottom: "6rem", 
+      backgroundImage: `url('https://media.discordapp.net/attachments/1153339485065580695/1153353645027500082/Screenshot_20230918-161403_Chrome.jpg?width=956&height=606')`,
+      backgroundSize: 'cover' }}>
         <Grid container spacing={1}>
           <Grid item xs={12} md={6} style={{paddingTop: "2rem"}}>
             

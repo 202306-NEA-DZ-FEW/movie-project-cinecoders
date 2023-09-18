@@ -9,18 +9,20 @@ export default function NowPlaying({ nowPlaying }) {
     <div>
       <Navbar />
     <div className="moviePage">
+    <div style={{ color: "#6082B6", textAlign: 'center' }}>
       <h1 className="bigTitle">Now playing...</h1>
-
+</div>
       <Grid
         container
-        spacing={4}
+        spacing={3}
         direction="row"
         justifyContent="space-evenly"
         alignItems="flex"
+        style={{ paddingLeft: '3rem', paddingRight: '2rem' }}
       >
         {nowPlaying.results.map((movie) => {
           return (
-            <Grid item xs={4} key={movie.id}>
+            <Grid item xs={3} key={movie.id}>
               <MovieCard {...movie} />
             </Grid>
           )

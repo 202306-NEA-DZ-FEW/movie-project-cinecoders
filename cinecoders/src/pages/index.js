@@ -55,7 +55,7 @@ export default function Home({latestMovie}) {
           marginBottom: "2rem",
           textAlign: "center",
           fontSize: "5rem",
-          color: "#9466c0",
+          color: "#6082B6",
         }}
       >
         Discover the latest movies
@@ -67,7 +67,8 @@ export default function Home({latestMovie}) {
         direction="row"
         justifyContent="space-evenly"
         alignItems="flex"
-        style={{ paddingLeft: '3rem', paddingRight: '3rem' }}
+        style={{ paddingLeft: '4rem', paddingRight: '1rem' }}
+        
       >
         {searchQuery.length === 0 && (
           <div>
@@ -97,6 +98,7 @@ export default function Home({latestMovie}) {
               spacing={3}
               justifyContent="flex-start"
               alignItems="flex-start"
+              
               
             >
               {movieResults.map((movie) => (
