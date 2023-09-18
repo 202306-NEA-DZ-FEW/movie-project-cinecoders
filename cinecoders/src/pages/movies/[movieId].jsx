@@ -15,21 +15,31 @@ export default function MoviePage({
   similarMovies,
   trailerMovie,
 }) {
-  const limitedResults = similarMovies.results.slice(0, 5)
+  const limitedResults = similarMovies.results.slice(0, 6)
+
+ 
 
   return (
     <div>
       <Navbar />
+      
+      
     
     <div className="test">
-      <div className="infoBig">
-        <h1>{movieData.title}</h1>
-        <p>{movieData.tagline}</p>
-      </div>
-      <Container style={{ height: "auto" }}>
+      <Typography variant="h1"
+      style={{marginTop: "3rem", textAlign: 'center',  
+      fontSize:'4rem', color: '#9466c0'}}>
+        {movieData.title}</Typography>
+     
+      <Typography variant="body1"
+      style={{marginBottom: "3rem", textAlign: 'center',  
+      fontStyle: 'italic', fontSize: '1.2rem'}}>
+        {movieData.tagline}</Typography>
+      
+      <Container style={{ height: "auto", marginBottom: "6rem" }}>
         <Grid container spacing={1}>
-          <Grid item xs={12} md={6}>
-            <div className="marginTop">
+          <Grid item xs={12} md={6} style={{paddingTop: "2rem"}}>
+            
               &quot;{movieData.overview}&quot;
               <br />
               <br />
@@ -57,7 +67,10 @@ export default function MoviePage({
                   {movieCredits["cast"][4]["name"]}
                 </li>
                 <li>
-                  <b>Language:</b> {movieData.spoken_languages[0].english_name}
+                  <b>Language:</b> {movieData.spoken_languages[0]?.english_name ? 
+                  ( movieData.spoken_languages[0].english_name ) : ( 
+                  <Typography variant="body2" style={{ fontStyle: 'italic', color: 'gray', 
+                  display: "inline", fontSize: "0.8rem" }}>Data not available </Typography> )}
                 </li>
                 <li>
                   <b>Vote average:</b> {movieData.vote_average} (
@@ -74,7 +87,8 @@ export default function MoviePage({
                     <CardMedia
                       component="img"
                       src={`https://image.tmdb.org/t/p/w500${company.logo_path}`}
-                      style={{ height: "15%", width: "55%" }}
+                      style={{ maxHeight: "20%", maxWidth: "45%", width: 'auto', height: 'auto' }}
+                      alt={`${company.name} logo`}
                     />
                     <CardContent>
                       <Typography style={{ fontSize: "12px" }}>
@@ -84,7 +98,7 @@ export default function MoviePage({
                   </Grid>
                 ))}
               </Grid>
-            </div>
+            
 
             <Trailer trailers={trailerMovie.results} />
           </Grid>
@@ -100,7 +114,10 @@ export default function MoviePage({
       </Container>
 
       <Container sx={{ height: "auto" }}>
-        <h1 className="yml">You might like...</h1>
+      <Typography variant="h2"
+      style={{marginTop: "10rem", marginBottom: "2rem", textAlign: 'center',  
+      fontSize:'3rem', fontStyle: 'italic', color: '#9466c0'}}>
+        You might like...</Typography>
         <Grid container spacing={2} justifyContent="center" alignItems="center">
           {limitedResults.map((movie) => {
             return (

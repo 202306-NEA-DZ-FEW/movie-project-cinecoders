@@ -46,7 +46,7 @@ div.test p {
 .bigTitle {
   text-align: center;
   font-size: 7rem;
-  color: blueviolet;
+  color: #9466c0;
   margin-bottom: 2rem;
 }
 
@@ -86,4 +86,8 @@ div.test p {
 
 .logoReal {
   text-decoration: none;
+}
+
+.ulPls {
+  font-size: 18px;
 }

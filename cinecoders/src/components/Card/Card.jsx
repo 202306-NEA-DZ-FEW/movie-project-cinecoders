@@ -15,16 +15,14 @@ export default function MovieCard(props) {
     return text
   }
 
+  
+
   return (
-    <Card
-      sx={{
-        minHeight: 550,
-        maxWidth: 345,
-        borderRadius: "20px",
-        border: "2px solid #58588a",
-      }}
-    >
-      <CardActionArea>
+    <Card sx={ {borderRadius: "20px",
+    border: "2px solid #58588a",  maxWidth: 345,}}>
+      <CardActionArea href={`/movies/${id}`} sx={{
+        minHeight: 450,
+      }}>
         <CardMedia 
           component="img"
           image={"https://image.tmdb.org/t/p/w500/" + poster_path}
@@ -41,13 +39,6 @@ export default function MovieCard(props) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Link href={`/movies/${id}`}>
-          <Button size="small" color="primary">
-            Full movie profile
-          </Button>
-        </Link>
-      </CardActions>
     </Card>
   )
 }

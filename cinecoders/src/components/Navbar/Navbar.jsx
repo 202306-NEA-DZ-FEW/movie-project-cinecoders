@@ -57,7 +57,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function Navbar() {
+export default function Navbar({onSearchChange}) {
   
 
   return (
@@ -66,7 +66,7 @@ export default function Navbar() {
         <Toolbar>
           
         <Button
-        
+        href="/"
        variant="text"
        color="inherit"
        sx={{
@@ -74,7 +74,7 @@ export default function Navbar() {
        backgroundColor: '#001f3f', }}
        style={{ textDecoration: 'none', color: 'red', fontStyle: 'italic', marginRight: '4rem' }}
          > 
-        <Link href="/">CineCoders</Link>
+        CineCoders
       </Button>
       <div>
       <Dropdown>
@@ -109,6 +109,7 @@ export default function Navbar() {
       <Button
         variant="text"
         color="inherit"
+        href="/actors"
         sx={{ display: { xs: 'none', sm: 'block' } }}
       >
         Actors
@@ -129,6 +130,7 @@ export default function Navbar() {
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
+              onChange={onSearchChange}
             />
           </Search>
 

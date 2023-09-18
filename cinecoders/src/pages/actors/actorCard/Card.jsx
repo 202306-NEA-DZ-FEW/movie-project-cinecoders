@@ -6,7 +6,7 @@ import { Button, CardActionArea, CardActions } from "@mui/material"
 import Link from "next/link"
 
 export default function ActorCard(props) {
-  const { name, profile_path } = props
+  const { name, profile_path, id } = props
 
   return (
     <Card
@@ -17,7 +17,8 @@ export default function ActorCard(props) {
         border: "2px solid #58588a",
       }}
     >
-      <CardActionArea>
+      
+      <CardActionArea href={`/actors/${id}`}>
         <CardMedia 
           component="img"
           image={"https://image.tmdb.org/t/p/w500/" + profile_path}
@@ -30,6 +31,7 @@ export default function ActorCard(props) {
          
         </CardContent>
       </CardActionArea>
+
     </Card>
   )
 }
