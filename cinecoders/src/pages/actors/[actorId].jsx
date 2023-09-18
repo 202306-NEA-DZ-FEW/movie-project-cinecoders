@@ -21,7 +21,8 @@ export default function ActorPage({
     <div>
       <Navbar />
     
-    <div className="test">
+    <div className="test" style={{maxWidth: '800px', justifyContent: 'center', 
+    margin: 'auto', border: '2px solid #6082B6', borderRadius: '20px', paddingBottom: '3rem'}}>
       
       <Container style={{ height: "auto", marginTop: "5rem" }}>
       <Grid container spacing={1} style={{  alignItems:"center", margin: 'auto' }}>
@@ -36,7 +37,7 @@ export default function ActorPage({
 
   <Grid item xs={12} md={6} style={{ paddingLeft: "3rem",fontSize: "20px", height: "450px" }}>
   <div className="infoBig">
-      <h1>{actorInfo.name}</h1>
+      <h1 style={{ color: "#6082B6",}}>{actorInfo.name}</h1>
     </div>
     <div className="marginTop">
       <br />

@@ -3,7 +3,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Container, CssBaseline, Switch, Typography } from "@mui/material";
 
 function Mode() {
-  const [darkMode, setDarkMode] = useState(false); // Set dark mode as default
+  const [darkMode, setDarkMode] = useState(true); // Set dark mode as default
 
   const theme = createTheme({
     palette: {
@@ -18,7 +18,7 @@ function Mode() {
     <ThemeProvider theme={theme}>
     <CssBaseline />
     <Container maxWidth="lg">
-      <Switch checked={!darkMode} onChange={() => setDarkMode(darkMode)} />
+      <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
     </Container>
   </ThemeProvider>
   );

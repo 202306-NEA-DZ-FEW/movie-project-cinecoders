@@ -28,7 +28,7 @@ export default function MoviePage({
     <div className="test">
       <Typography variant="h1"
       style={{marginTop: "3rem", textAlign: 'center',  
-      fontSize:'4rem', color: '#9466c0'}}>
+      fontSize:'4rem', color: '#6082B6' }}>
         {movieData.title}</Typography>
      
       <Typography variant="body1"
@@ -36,9 +36,9 @@ export default function MoviePage({
       fontStyle: 'italic', fontSize: '1.2rem'}}>
         {movieData.tagline}</Typography>
       
-      <Container style={{ height: "auto", marginBottom: "6rem", 
-      backgroundImage: `url('https://media.discordapp.net/attachments/1153339485065580695/1153353645027500082/Screenshot_20230918-161403_Chrome.jpg?width=956&height=606')`,
-      backgroundSize: 'cover' }}>
+      <Container style={{ height: "auto", padding: "3rem", marginBottom: "6rem", 
+      backgroundImage: `url('https://i.imgur.com/vjwoJUw.png')`,
+      backgroundSize: '100% 100%', color: 'whitesmoke' }}>
         <Grid container spacing={1}>
           <Grid item xs={12} md={6} style={{paddingTop: "2rem"}}>
             
@@ -66,7 +66,7 @@ export default function MoviePage({
                   {movieCredits["cast"][1]["name"]},{" "}
                   {movieCredits["cast"][2]["name"]},{" "}
                   {movieCredits["cast"][3]["name"]},{" "}
-                  {movieCredits["cast"][4]["name"]}
+                  {movieCredits["cast"][4] && movieCredits["cast"][4]["name"]}
                 </li>
                 <li>
                   <b>Language:</b> {movieData.spoken_languages[0]?.english_name ? 
@@ -82,9 +82,14 @@ export default function MoviePage({
                   <b>Productions:</b>
                 </li>
               </ul>
-              <Grid container spacing={1}>
+              <div style={{height: '1rem'}}></div>
+              <Grid container spacing={1} style={{
+                 padding: 0, backgroundColor: 'rgba(255,255,255, 0.5)',
+                 borderRadius: '20px',
+                 overflow: 'hidden', justifyContent: 'center'
+              }}>
                 {movieData.production_companies.map((company) => (
-                  <Grid item xs key={company.id}>
+                  <Grid item xs key={company.id} style={{maxHeight: '120px' ,}}>
                     <br />
                     <CardMedia
                       component="img"
@@ -100,7 +105,7 @@ export default function MoviePage({
                   </Grid>
                 ))}
               </Grid>
-            
+            <div style={{height: '1rem'}}></div>
 
             <Trailer trailers={trailerMovie.results} />
           </Grid>
