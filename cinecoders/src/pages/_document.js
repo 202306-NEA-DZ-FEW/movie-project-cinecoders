@@ -7,10 +7,12 @@ import Dropdown from '@mui/joy/Dropdown';
 import Menu from '@mui/joy/Menu';
 import MenuButton from '@mui/joy/MenuButton';
 import MenuItem from '@mui/joy/MenuItem';
-
+import Footer from "@/components/Footer/Footer";
 
 
 export default function Document(){
+
+
 
   return (
     <Html lang="en">
@@ -24,8 +26,9 @@ export default function Document(){
 
         <NextScript />
 
-        
-
+        <div style={{ marginTop: "7rem" }}>
+        <Footer />
+        </div>
       </body>
       
     </Html>

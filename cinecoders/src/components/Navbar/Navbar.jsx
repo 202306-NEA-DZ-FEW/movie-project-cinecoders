@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -12,8 +11,21 @@ import Menu from '@mui/joy/Menu';
 import MenuButton from '@mui/joy/MenuButton';
 import MenuItem from '@mui/joy/MenuItem';
 import Link from 'next/link';
+import { fetchGenres } from '@/util/api';
+import Mode from '../mode';
 
+const StyledAppBar = styled(AppBar)(({ theme }) => ({
+  width: '100%',
+  position: 'fixed',
+  top: 0,
+  zIndex: theme.zIndex.drawer + 1,
+  backgroundColor: '#001f3f',
+  boxShadow: 'none',
+}));
 
+const StyledToolbar = styled(Toolbar)({
+  padding: 0,
+});
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -44,7 +56,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     width: '100%',
@@ -57,73 +68,101 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function Navbar({onSearchChange}) {
-  
+export default function Navbar({ onSearchChange }) {
+  const [genres, setGenres] = useState([]);
+
+  useEffect(() => {
+    // Fetch genres when the component mounts
+    fetchGenres().then((data) => {
+      setGenres(data);
+    });
+  }, []);
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          
-        <Button
-        href="/"
-       variant="text"
-       color="inherit"
-       sx={{
-       display: { xs: 'none', sm: 'block' },
-       backgroundColor: '#001f3f', }}
-       style={{ textDecoration: 'none', color: 'red', fontStyle: 'italic', marginRight: '4rem' }}
-         > 
-        CineCoders
-      </Button>
-      <div>
-      <Dropdown>
-    <MenuButton>MOVIES</MenuButton>
-    <Menu>
-    <MenuItem><Link href="/movies/toprate">Top Rate</Link></MenuItem>
-      <MenuItem><Link href="/movies/popular">Popular</Link></MenuItem>
-      <MenuItem><Link href="/movies/nowplaying">Now playing</Link></MenuItem>
-      <MenuItem><Link href="/movies/upcoming">Upcoming</Link></MenuItem>
-    </Menu>
-  </Dropdown></div>
-      
-          
+    <Box sx={{ flexGrow: 1, marginBottom: '7rem' }}>
+      <StyledAppBar>
+        <StyledToolbar>
           <Button
-        variant="text"
-        color="inherit"
-        sx={{ display: { xs: 'none', sm: 'block' } }}
-        
-      >
-        Movies
-      </Button>
-     
-      <Button
-        variant="text"
-        color="inherit"
-        sx={{ display: { xs: 'none', sm: 'block' } }}
-        
-      >
-        Genres
-      </Button>
-      
-      <Button
-        variant="text"
-        color="inherit"
-        href="/actors"
-        sx={{ display: { xs: 'none', sm: 'block' } }}
-      >
-        Actors
-      </Button>
-      <Button
-        variant="text"
-        color="inherit"
-        sx={{ display: { xs: 'none', sm: 'block' } }}
-      >
-        About
-      </Button>
-   
-   
-      <Search style={{ marginLeft: '10rem', width: '300px' }}>
+            href="/"
+            variant="text"
+            color="inherit"
+            sx={{
+              display: { xs: 'none', sm: 'block' },
+              backgroundColor: '#001f3f',
+            }}
+            style={{ textDecoration: 'none', color: 'red', fontStyle: 'italic', marginRight: '4rem' }}
+          >
+            CineCoders
+          </Button>
+          <div style={{ display: 'flex', justifyContent: 'space-between', gap: '3rem' }}>
+            <Dropdown>
+              <MenuButton
+                variant="text"
+                sx={{ display: { xs: 'none', sm: 'block', color: 'white' } }}
+              >
+                MOVIES
+              </MenuButton>
+              <Menu>
+                <MenuItem>
+                  <Link href="/movies/toprate" style={{ textDecoration: 'none' }}>
+                    Top Rate
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link href="/movies/popular" style={{ textDecoration: 'none' }}>
+                    Popular
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link href="/movies/nowplaying" style={{ textDecoration: 'none' }}>
+                    Now playing
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link href="/movies/upcoming" style={{ textDecoration: 'none' }}>
+                    Upcoming
+                  </Link>
+                </MenuItem>
+              </Menu>
+            </Dropdown>
+
+            <Dropdown>
+              <MenuButton
+                variant="text"
+                sx={{ display: { xs: 'none', sm: 'block' }, color: 'white' }}
+              >
+                GENRES
+              </MenuButton>
+              <Menu>
+                {genres.map((genre) => (
+                  <MenuItem
+                    key={genre.id}
+                    onClick={() => window.location.href = `/genres/${genre.id}`}
+                  >
+                    {genre.name}
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Dropdown>
+
+            <Button
+              variant="text"
+              color="inherit"
+              href="/actors"
+              sx={{ display: { xs: 'none', sm: 'block' } }}
+            >
+              Actors
+            </Button>
+            <Button
+              variant="text"
+              color="inherit"
+              sx={{ display: { xs: 'none', sm: 'block' } }}
+            >
+              About
+            </Button>
+          </div>
+
+          <Search style={{ marginLeft: '10rem', width: '300px' }}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -133,12 +172,10 @@ export default function Navbar({onSearchChange}) {
               onChange={onSearchChange}
             />
           </Search>
-
-          
-        </Toolbar>
-       
-      </AppBar>
-       
+<div style={{ marginLeft: '5rem'}}>
+          <Mode /></div>
+        </StyledToolbar>
+      </StyledAppBar>
     </Box>
   );
 }
