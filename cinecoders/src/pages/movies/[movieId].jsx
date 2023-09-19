@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography"
 import MovieCard from "@/components/Card/Card"
 import Trailer from "@/components/Trailer/Trailer"
 import Navbar from "@/components/Navbar/Navbar"
+import Link from "next/link"
 
 export default function MoviePage({
   movieData,
@@ -77,11 +78,47 @@ export default function MoviePage({
                   <b>Director:</b> {movieCredits["crew"][0]["name"]}
                 </li>
                 <li>
-                  <b>Line-up:</b> {movieCredits["cast"][0]["name"]},{" "}
-                  {movieCredits["cast"][1]["name"]},{" "}
-                  {movieCredits["cast"][2]["name"]},{" "}
-                  {movieCredits["cast"][3]["name"]},{" "}
-                  {movieCredits["cast"][4] && movieCredits["cast"][4]["name"]}
+                  <b>Line-up:</b>
+                  <Link
+                    style={{ textDecoration: "none", color: "whitesmoke" }}
+                    target="_blank"
+                    href={`/actors/${movieCredits["cast"][0]["id"]}`}
+                  >
+                    {" "}
+                    {movieCredits["cast"][0]["name"]}
+                  </Link>
+                  ,{" "}
+                  <Link
+                    style={{ textDecoration: "none", color: "whitesmoke" }}
+                    target="_blank"
+                    href={`/actors/${movieCredits["cast"][1]["id"]}`}
+                  >
+                    {movieCredits["cast"][1]["name"]}
+                  </Link>
+                  ,{" "}
+                  <Link
+                    style={{ textDecoration: "none", color: "whitesmoke" }}
+                    target="_blank"
+                    href={`/actors/${movieCredits["cast"][2]["id"]}`}
+                  >
+                    {movieCredits["cast"][2]["name"]}
+                  </Link>
+                  ,{" "}
+                  <Link
+                    style={{ textDecoration: "none", color: "whitesmoke" }}
+                    target="_blank"
+                    href={`/actors/${movieCredits["cast"][3]["id"]}`}
+                  >
+                    {movieCredits["cast"][3]["name"]}
+                  </Link>
+                  ,{" "}
+                  <Link
+                    style={{ textDecoration: "none", color: "whitesmoke" }}
+                    target="_blank"
+                    href={`/actors/${movieCredits["cast"][4]["id"]}`}
+                  >
+                    {movieCredits["cast"][4] && movieCredits["cast"][4]["name"]}
+                  </Link>
                 </li>
                 <li>
                   <b>Language:</b>{" "}
