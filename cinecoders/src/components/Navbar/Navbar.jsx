@@ -12,7 +12,7 @@ import MenuButton from "@mui/joy/MenuButton"
 import MenuItem from "@mui/joy/MenuItem"
 import Link from "next/link"
 import { fetchGenres } from "@/util/api"
-import Mode from "../mode"
+import Mode from "../Mode"
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   width: "100%",
