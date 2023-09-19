@@ -1,25 +1,24 @@
-import React from 'react'
+import React from "react"
 import Grid from "@mui/material/Grid"
-import TVcard from './TVcard/TVcard'
-import Navbar from '@/components/Navbar/Navbar'
+import TVcard from "./TVcard/TVcard"
+import Navbar from "@/components/Navbar/Navbar"
 
-function TVlatest ({latesttv}) {
-
-  
+function TVlatest({ latesttv }) {
   return (
     <div>
       <Navbar />
-      <h1 style={{ textAlign: "center",
-          color: "#6082B6",}}>Check the latest TV Shows</h1>
-    <br />
-    <Grid
+      <h1 style={{ textAlign: "center", color: "#6082B6" }}>
+        Check the latest TV Shows
+      </h1>
+      <br />
+      <Grid
         container
         spacing={3}
         direction="row"
         justifyContent="space-evenly"
         alignItems="flex"
-        paddingLeft='3rem'
-        paddingRight='2rem'
+        paddingLeft="3rem"
+        paddingRight="2rem"
       >
         {latesttv.results.map((tv) => {
           return (
@@ -29,7 +28,6 @@ function TVlatest ({latesttv}) {
           )
         })}
       </Grid>
-    
     </div>
   )
 }

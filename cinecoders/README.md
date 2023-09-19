@@ -37,10 +37,8 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-
-
-   1. Logo - This could be a design or simply text of your page.
-   2. Genres - This is a drop down that include the genres of all movies. The Genres should be fetched from the API.
-   3. Movies - This is another dropdown that contains the following options ["Top Rate", "Popular", "Latest", "Now playing", "Upcoming"] - Clicking on one of these options takes the user to the movies page (#2) and gives them the corresponding data. Each one of those has a dedicated API route.
-   4. Actors - Goes to the Actors page (#4) and shows a list of all popular actors.
-   5. Search box where you can type the movie or actor name and display the related results.
+1.  Logo - This could be a design or simply text of your page.
+2.  Genres - This is a drop down that include the genres of all movies. The Genres should be fetched from the API.
+3.  Movies - This is another dropdown that contains the following options ["Top Rate", "Popular", "Latest", "Now playing", "Upcoming"] - Clicking on one of these options takes the user to the movies page (#2) and gives them the corresponding data. Each one of those has a dedicated API route.
+4.  Actors - Goes to the Actors page (#4) and shows a list of all popular actors.
+5.  Search box where you can type the movie or actor name and display the related results.

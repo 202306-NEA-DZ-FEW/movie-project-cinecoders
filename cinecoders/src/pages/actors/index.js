@@ -1,25 +1,23 @@
-import React from 'react'
+import React from "react"
 import Grid from "@mui/material/Grid"
-import ActorCard from './actorCard/Card'
-import Navbar from '@/components/Navbar/Navbar'
+import ActorCard from "./actorCard/Card"
+import Navbar from "@/components/Navbar/Navbar"
 
-function Actor({actorList}) {
-
-  
+function Actor({ actorList }) {
   return (
     <div>
       <Navbar />
-      <div style={{ color: "#6082B6", textAlign: 'center' }}>
-      <h1>Actor page</h1>
+      <div style={{ color: "#6082B6", textAlign: "center" }}>
+        <h1>Actor page</h1>
       </div>
-    <br />
-    <Grid
+      <br />
+      <Grid
         container
         spacing={4}
         direction="row"
         justifyContent="space-evenly"
         alignItems="flex"
-        margin='auto'
+        margin="auto"
       >
         {actorList.results.map((actor) => {
           return (
@@ -29,7 +27,6 @@ function Actor({actorList}) {
           )
         })}
       </Grid>
-    
     </div>
   )
 }

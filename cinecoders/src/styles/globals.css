@@ -56,8 +56,8 @@ div.test p {
 }
 
 .trailerNone {
-  background-color: #ffe0e0; 
-  border: 1px solid #ff0000; 
+  background-color: #ffe0e0;
+  border: 1px solid #ff0000;
   padding: 10px;
   display: flex;
   align-items: center;
@@ -79,7 +79,6 @@ div.test p {
 }
 
 .buttooon {
-
   margin-left: 1rem;
   margin-right: 1rem;
 }

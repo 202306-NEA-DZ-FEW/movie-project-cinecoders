@@ -1,34 +1,33 @@
-
 import React from "react"
 import Grid from "@mui/material/Grid"
 import MovieCard from "@/components/Card/Card"
-import Navbar from '@/components/Navbar/Navbar'
+import Navbar from "@/components/Navbar/Navbar"
 
 export default function Popular({ popMovie }) {
   return (
     <div>
       <Navbar />
-    <div className="moviePage">
-    <div style={{ color: "#6082B6", textAlign: 'center' }}>
-      <h1 className="bigTitle">Trending movies</h1>
-</div>
-      <Grid
-        container
-        spacing={3}
-        direction="row"
-        justifyContent="space-evenly"
-        alignItems="flex"
-        style={{ paddingLeft: '3rem', paddingRight: '2rem' }}
-      >
-        {popMovie.results.map((movie) => {
-          return (
-            <Grid item xs={3} key={movie.id}>
-              <MovieCard {...movie} />
-            </Grid>
-          )
-        })}
-      </Grid>
-    </div>
+      <div className="moviePage">
+        <div style={{ color: "#6082B6", textAlign: "center" }}>
+          <h1 className="bigTitle">Trending movies</h1>
+        </div>
+        <Grid
+          container
+          spacing={3}
+          direction="row"
+          justifyContent="space-evenly"
+          alignItems="flex"
+          style={{ paddingLeft: "3rem", paddingRight: "2rem" }}
+        >
+          {popMovie.results.map((movie) => {
+            return (
+              <Grid item xs={3} key={movie.id}>
+                <MovieCard {...movie} />
+              </Grid>
+            )
+          })}
+        </Grid>
+      </div>
     </div>
   )
 }
